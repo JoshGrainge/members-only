@@ -10,6 +10,16 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// Connect mongoose to mongodb
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', false);
+const mongoDB = process.env.MONGODB_URL
+
+main().catch(err => console.log(err));
+async function main(){
+  await mongoose.connect(mongoDB)
+}
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
