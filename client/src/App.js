@@ -22,6 +22,27 @@ function App() {
       .catch(err => console.error('Error: ', err));
   }
 
+  const AddMessage = async (e) => {
+    e.preventDefault();
+    fetch(API_BASE + '/message/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        user: user,
+        message: message,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => setMessages(prev => [...prev, data]))
+      .catch(err => console.error('Error: ', err));
+
+    setMessage('');
+    setModalActive(false);
+  }
+
+
   return (
     <div className="layout">
       {/* Header */}
