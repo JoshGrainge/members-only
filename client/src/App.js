@@ -79,7 +79,7 @@ function App() {
       </ul>
 
       {/* Toggle modal on click */}
-      {(user || true) && <button className='add-message-button' onClick={()=> setModalActive(prev=>!prev)}>+</button>}
+      {(user || true) && <button className={'add-message-button' + (modalActive ? ' tilted' : '')} onClick={()=> setModalActive(prev=>!prev)}>+</button>}
 
       {/* Modal */}
       {modalActive && 
