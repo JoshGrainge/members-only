@@ -1,38 +1,166 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --primary: #41b3a3;
+  --secondary: #85dcd5;
+  --accent: #e8a87c;
+
+  --secondary: #e8a87c;
+  --accent: #85dcd5;
+
+  --text-color: rgb(37, 37, 37);
+  --text-color-faint: rgb(58, 58, 58);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  padding: 50px;
+  font: 14px 'Quicksand', 'Lucida Grande', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+
+  background-color: var(--primary);
+
+  color: var(--text-color)
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  color: #00B7FF;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+button:hover{
+  background-color: var(--accent);
+  border: 5px solid var(--accent);
+  color: var(--primary);
+}
+
+button {
+  border-radius: 5px;
+  width: 125px;
+  font-weight: bold;
+
+  padding: 15px 20px;
+  margin: 0 10px;
+
+  transition: 0.1s;
+
+  cursor: pointer;
+}
+
+button, button:active {
+  background-color: var(--primary);
+  border: 5px solid var(--accent);
+  color: var(--accent);
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comments-header {
+  text-align: left;
+  margin: 10px 0;
+}
+
+.none-list {
+  list-style: none;
+}
+
+.comments-list {
+  max-width: 60vw;
+  width: 100%;
+  align-self: center;
+}
+
+.no-message-text {
+  font-size: 25px;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+
+.comments {
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.comment-user-info {
+  display: flex;
+  align-items: center;
+}
+
+.comment {
+  background-color: var(--secondary);
+  border: 2px solid rgba(119, 119, 119, 0.438);
+  padding: 20px 30px 40px 30px;
+  margin-bottom: 30px;
+
+  display: grid;
+  grid-template-areas: 
+      "user-info timestamp"
+      "comment comment";
+  grid-template-columns: 4fr 1fr;
+  align-items: center;
+
+  border-radius: 15px;
+  box-shadow: 3px 7px 6px 3px rgb(34 34 34 / 28%);
+}
+
+.avatar {
+  height: 60px;
+  margin-right: 20px;
+  border-radius: 50%;
+  grid-area: user-info;
+}
+
+.user-info {
+  grid-area: user-info;
+  display: flex;
+  align-self: center;
+}
+
+.username {
+  align-self: center;
+}
+
+.timestamp {
+  font-weight: 300;
+  color: var(--text-color-faint);
+  justify-self: end;
+}
+
+.comment-text {
+  align-self: baseline;
+  grid-area: comment;
+  border-top: 2px solid var(--text-color);
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.add-message-button {
+  border-radius: 50%;
+  font-size: 50px;
+  font-weight: bold;
+
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  align-items: center;
 
-.App-link {
-  color: #61dafb;
-}
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  width: 70px;
+  height: 70px;
 }
