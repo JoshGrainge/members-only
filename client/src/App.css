@@ -163,4 +163,11 @@ button, button:active {
 
   width: 70px;
   height: 70px;
+
+  transition: transform 0.15s ease-in-out;
+
+}
+
+button.add-message-button.tilted {
+  transform: rotate(45deg);
 }
