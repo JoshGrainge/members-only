@@ -1,7 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const API_BASE = 'http://localhost:3001'
+
+  const [user, setUser] = useState('6459061862f0b4c111711653');
+  const [messages, setMessages] = useState();
+
+  const [modalActive, setModalActive] = useState(false);
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    GetMessages();
+  }, []);
+
+  const GetMessages = () => {
+    fetch(API_BASE)
+      .then(res => res.json())
+      .then(data => setMessages(data))
+      .catch(err => console.error('Error: ', err));
+  }
+
   return (
     <div className="layout">
       {/* Header */}
