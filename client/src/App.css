@@ -165,9 +165,57 @@ button, button:active {
   height: 70px;
 
   transition: transform 0.15s ease-in-out;
-
+  z-index: 1;
 }
 
 button.add-message-button.tilted {
   transform: rotate(45deg);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0);
+  transition: opacity 0.1s ease-in-out;
+}
+
+.modal.active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-form {
+  height: 250px;
+  width: 400px;
+  border-radius: 5px;
+
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, calc(-50% + 250px));
+  background-color: var(--primary);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  opacity: 0;
+
+  transition: transform 0.1s ease-in-out, opacity;
+}
+
+.modal.active > .modal-form {
+  transform: translate(-50%, -50%);
+  opacity: 100;
+}
+
+.modal-form > textarea {
+  resize: none;
+  height: 50%;
+  width: 90%;
+  padding: 10px;
+  border-radius: 5px;
 }
