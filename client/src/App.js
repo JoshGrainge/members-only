@@ -82,15 +82,14 @@ function App() {
       {(user || true) && <button className={'add-message-button' + (modalActive ? ' tilted' : '')} onClick={()=> setModalActive(prev=>!prev)}>+</button>}
 
       {/* Modal */}
-      {modalActive && 
-      <div className='modal'>
-        <form action={`${API_BASE}/message/new`} method='POST' onSubmit={AddMessage}>
+      <div className={'modal' + (modalActive ? ' active' : '')}>
+        <form className='modal-form' action={`${API_BASE}/message/new`} method='POST' onSubmit={AddMessage}>
           <input hidden={true} id='user' name='user' value={user} readOnly={true}/>
           <label htmlFor='message'>Message</label>
           <input id='message' name='message' value={message} onChange={(e)=>setMessage(e.target.value)}/>
           <button>Submit</button>
         </form>
-      </div>}
+      </div>
     </div>
   );
 }
