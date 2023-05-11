@@ -86,7 +86,7 @@ function App() {
         <form className='modal-form' action={`${API_BASE}/message/new`} method='POST' onSubmit={AddMessage}>
           <input hidden={true} id='user' name='user' value={user} readOnly={true}/>
           <label className='modal-title' htmlFor='message'>New Message</label>
-          <textarea id='message' name='message' value={message} onChange={(e)=>setMessage(e.target.value)}/>
+          <textarea id='message' name='message' value={message} onChange={(e)=>setMessage(e.target.value)} placeholder='Enter text here...'/>
           <button>Post</button>
         </form>
       </div>
