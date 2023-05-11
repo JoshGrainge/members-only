@@ -221,3 +221,7 @@ button.add-message-button.tilted {
   padding: 10px;
   border-radius: 5px;
 }
+ 
+.modal-title {
+  font-weight: bold;
+}
