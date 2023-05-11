@@ -23,15 +23,14 @@ body {
 
   background-color: var(--primary);
 
-  color: var(--text-color)
-
+  color: var(--text-color);
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
-button:hover{
+button:hover {
   background-color: var(--accent);
   border: 5px solid var(--accent);
   color: var(--primary);
@@ -50,7 +49,8 @@ button {
   cursor: pointer;
 }
 
-button, button:active {
+button,
+button:active {
   background-color: var(--primary);
   border: 5px solid var(--accent);
   color: var(--accent);
@@ -107,9 +107,9 @@ button, button:active {
   margin-bottom: 30px;
 
   display: grid;
-  grid-template-areas: 
-      "user-info timestamp"
-      "comment comment";
+  grid-template-areas:
+    'user-info timestamp'
+    'comment comment';
   grid-template-columns: 4fr 1fr;
   align-items: center;
 
@@ -221,7 +221,7 @@ button.add-message-button.tilted {
   padding: 10px;
   border-radius: 5px;
 }
- 
+
 .modal-title {
   font-weight: bold;
 }
