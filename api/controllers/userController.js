@@ -23,3 +23,21 @@ exports.new_user = asyncHandler(async (req, res, next) => {
 
   res.json(user);
 });
+
+exports.login = asyncHandler(async (req, res, next) => {
+  const user = await User.findOne({ username: req.body.username });
+
+  if (user) {
+    if (user.password !== req.body.password) {
+      return res.status(400).send({
+        message: 'Incorrect password',
+      });
+    }
+
+    res.sendStatus(200);
+  } else {
+    return res.status(400).send({
+      message: 'Username does not exist',
+    });
+  }
+});
