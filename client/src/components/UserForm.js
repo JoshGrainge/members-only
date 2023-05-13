@@ -23,15 +23,15 @@ const UserForm = ({ newUser }) => {
 
     const bodyJson = newUser
       ? {
-          username: userInfo.username,
-          password: userInfo.password,
-        }
-      : {
           first_name: userInfo.first_name,
           last_name: userInfo.last_name,
           username: userInfo.username,
           password: userInfo.password,
           confirmPassword: userInfo.confirmPassword,
+        }
+      : {
+          username: userInfo.username,
+          password: userInfo.password,
         };
 
     const res = await fetch(process.env.REACT_APP_API_BASE + urlSuffix, {
