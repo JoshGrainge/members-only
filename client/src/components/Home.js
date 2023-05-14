@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
-  const API_BASE = 'http://localhost:3001';
-
   const [user, setUser] = useState();
   const [messages, setMessages] = useState(null);
 
@@ -17,7 +15,7 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   const GetMessages = () => {
-    fetch(API_BASE)
+    fetch(process.env.REACT_APP_API_BASE)
       .then((res) => res.json())
       .then((data) => setMessages(data))
       .catch((err) => console.error('Error: ', err));
@@ -25,7 +23,7 @@ const HomePage = () => {
 
   const AddMessage = async (e) => {
     e.preventDefault();
-    fetch(API_BASE + '/message/new', {
+    fetch(process.env.REACT_APP_API_BASE + '/message/new', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +42,7 @@ const HomePage = () => {
   };
 
   const GotoProfile = async () => {
-    fetch(API_BASE + '/users/' + user)
+    fetch(process.env.REACT_APP_API_BASE + '/users/' + user)
       .then((res) => res.json())
       .then((data) => console.log('data: ' + data));
   };
@@ -110,7 +108,7 @@ const HomePage = () => {
       <div className={'modal' + (modalActive ? ' active' : '')}>
         <form
           className='modal-form'
-          action={`${API_BASE}/message/new`}
+          action={`${process.env.REACT_APP_API_BASE}/message/new`}
           method='POST'
           onSubmit={AddMessage}
         >
