@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import Header from './Header';
+
 const HomePage = () => {
   const [user, setUser] = useState();
   const [messages, setMessages] = useState(null);
@@ -49,25 +51,7 @@ const HomePage = () => {
 
   return (
     <div className='layout'>
-      {/* Header */}
-      <div className='header'>
-        <h1>Members Only</h1>
-
-        {user && (
-          <div className='header-buttons'>
-            <button onClick={() => navigate(`/user/${user._id}`)}>
-              Profile
-            </button>
-            <button onClick={() => navigate('/user/logout')}>Log Out</button>
-          </div>
-        )}
-        {!user && (
-          <div className='header-buttons'>
-            <button onClick={() => navigate('/user/login')}>Log in</button>
-            <button onClick={() => navigate('/user/signup')}>Sign up</button>
-          </div>
-        )}
-      </div>
+      <Header user={user} />
       <ul className='none-list comments-list'>
         <li>
           <h2 className='comments-header'>Messages:</h2>
